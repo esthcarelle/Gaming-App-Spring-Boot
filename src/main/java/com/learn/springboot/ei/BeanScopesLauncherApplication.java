@@ -23,10 +23,6 @@ class PrototypeClass{
 public class BeanScopesLauncherApplication {
     public static void main(String[] args) {
         try (var context = new AnnotationConfigApplicationContext(BeanScopesLauncherApplication.class)) {
-
-            System.out.println(context.getBean(PrototypeClass.class));
-            System.out.println(context.getBean(PrototypeClass.class));
-            System.out.println(context.getBean(PrototypeClass.class));
         }
     }
 }
