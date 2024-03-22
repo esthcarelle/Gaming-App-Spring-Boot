@@ -7,6 +7,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+
 @Component
 class SomeClass{
     private SomeDependency someDependency;
@@ -14,7 +16,7 @@ class SomeClass{
     public SomeClass(SomeDependency someDependency){
         super();
         this.someDependency = someDependency;
-        System.out.println(someDependency);
+        System.out.println("Dependencies are ready");
     }
 
     @PostConstruct
@@ -41,6 +43,7 @@ class SomeDependency{
 public class PrePostAnnotationsContextLauncherApplication {
     public static void main(String[] args) {
         try (var context = new AnnotationConfigApplicationContext(com.learn.springboot.ei.BeanScopesLauncherApplication.class)) {
+            Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
         }
     }
 }
