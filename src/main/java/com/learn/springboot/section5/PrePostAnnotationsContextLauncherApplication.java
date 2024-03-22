@@ -1,6 +1,7 @@
 package com.learn.springboot.section5;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +20,12 @@ class SomeClass{
     @PostConstruct
     public void initialize(){
         someDependency.getReady();
+    }
+
+    @PreDestroy
+    public void cleanup(){
+        System.out.println("Cleanup");
+
     }
 }
 
